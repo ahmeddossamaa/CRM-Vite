@@ -1,47 +1,54 @@
 <template>
-    <div class="row m-0">
-        <div class="col-2 left">
-            <div class="app-name">CRM</div>
-            <side-bar class="side-bar"/>
+    <div class='container1'>
+        <div class="left-bar"><side-bar/></div>
+        <div class="scrollable-content">
+            <center/>
         </div>
-        <div class="col-8 center"><router-view/></div>
-        <div class="col-2 right">right</div>
+        <div class="right-bar">Right</div>
     </div>
 </template>
 
 <script>
 import SideBar from "../components/nav/SideBar.vue";
+import Users from "./Users.vue";
+import Center from "./dashboard/Center.vue";
+import TopBar from "../components/nav/TopBar.vue";
+
 export default {
     name: 'Dashboard',
-    components: {SideBar},
+    components: {TopBar, Users, SideBar, Center},
 }
 </script>
 
 <style>
-.left, .right{
-    min-height: 100vh;
-    max-height: 100vh;
-    background-color: #0d6efd;
+body {
+    margin:0;
+    box-sizing: border-box;
+    /*background-color:darkblue;*/
 }
-
-.left{
-    padding: 0;
+.container1 {
+    --right-bar-width: 150px;
+    --left-bar-width: 200px;
     color: white;
-    position: relative;
 }
-
-.side-bar{
-    position: absolute;
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate();*/
+.left-bar {
+    position:fixed;
+    top: 0;
+    width: var(--left-bar-width);
+    height: 100vh;
+    background-color: #006400FF;
 }
-
-.app-name{
-    text-align: center;
-    min-height: 10rem;
-    line-height: 10rem;
-    align-content: center;
-    font-size: 4rem;
+.right-bar {
+    position:fixed;
+    top:0;
+    right: 0;
+    width: var(--right-bar-width);
+    background-color:magenta;
+}
+.scrollable-content {
+    margin-left: var(--left-bar-width);
+    background-color: rgb(33, 33, 33);
+    width: calc(100% - var(--left-bar-width) - var(--right-bar-width));
+    /*height: calc(100vw - var(--topbar-height));*/
 }
 </style>

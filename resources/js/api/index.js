@@ -1,26 +1,35 @@
+import main from "../config/main";
+import constants from "../config/constants";
 import cookies from "vue-cookies";
 
-const baseURL = 'http://127.0.0.1:8000/api/';
-const auth = cookies.get('auth') || {};
+const auth = main.getAuth();
 
 export default {
     getRequest: async (url, options = []) => {
-        options['Authorization'] = 'Bearer ' + auth.authToken;
-
-        return await window.axios.get(baseURL + url, options).then(response => {
+        let authToken = '';
+        if(cookies.get('auth')){
+            authToken = cookies.get('auth').authToken;
+        }
+        window.axios.defaults.headers['Authorization'] = 'Bearer ' + authToken;
+        return await window.axios.get(constants.BASE_URL + url).then(response => {
             return response.data;
         }).catch(err => {
-            console.log(err);
+            console.log("get", err);
+            main.handler(err.response.status);
             return err;
         });
     },
     postRequest: async (url, data, options = []) => {
-        options['Authorization'] = 'Bearer ' + auth.authToken;
-
-        return await window.axios.post(baseURL + url, data, options).then(response => {
+        let authToken = '';
+        if(cookies.get('auth')){
+            authToken = cookies.get('auth').authToken;
+        }
+        window.axios.defaults.headers['Authorization'] = 'Bearer ' + authToken;
+        return await window.axios.post(constants.BASE_URL + url, data).then(response => {
             return response.data;
         }).catch(err => {
-            console.log(err);
+            console.log("post", err);
+            main.handler(err.response.status);
             return err;
         });
     },

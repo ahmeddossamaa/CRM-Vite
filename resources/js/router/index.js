@@ -2,29 +2,18 @@ import {createRouter, createWebHistory} from "vue-router/dist/vue-router";
 import App from "../views/App.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Users from "../views/Users.vue";
+import User from "../views/User.vue";
 import Login from "../views/user/Login.vue";
 import Center from "../views/dashboard/Center.vue";
 
 import cookies from "vue-cookies";
-import {next} from "lodash/seq";
+import main from "../config/main";
 
 const routes = [
     {
         path: '/',
-        name: 'dashboard',
+        name: 'home',
         component: Dashboard,
-        children: [
-            {
-                path: 'dashboard',
-                name: 'center',
-                component: Center,
-            },
-            {
-                path: 'users',
-                name: 'users',
-                component: Users,
-            },
-        ],
         meta: {
             auth: true,
         }
@@ -40,10 +29,15 @@ const routes = [
     {
         path: '/logout',
         name: 'logout',
-        beforeRouteEnter: (to, from, next) => {
-            console.log("test");
-            next(redirectLink);
+        component: {
+            beforeRouteEnter: async (to, from, next) => {
+                await main.logout();
+                next('/login');
+            }
         },
+        meta: {
+            auth: true,
+        }
     },
 ];
 
@@ -52,10 +46,10 @@ const router = createRouter({
     routes,
 });
 
-const redirectLink = '/dashboard';
+const redirectLink = '/';
 
 router.beforeEach(async (to, from, next) => {
-    let auth = cookies.get('auth') || {};
+    let auth = main.getAuth();
 
     if (to.meta.auth){
         if (!auth.authToken){
