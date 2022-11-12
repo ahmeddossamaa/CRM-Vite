@@ -1,32 +1,30 @@
-import cookies from "vue-cookies";
-import api from "../api";
-import router from "../router";
+import cookies from "vue-cookies"
+import {postRequest} from "../api"
+import router from "../router"
 
-const getAuth = () => {
+export const getAuth = () => {
     return cookies.get('auth') || {};
 }
 
-const logout = () => {
-    api.postRequest('auth/logout').then(async (r) => {
+export const getAuthToken = () => {
+    return getAuth().authToken;
+}
+
+export const logout = () => {
+    postRequest('auth/logout').then(async () => {
         await clearAuth();
     });
 }
 
-const clearAuth = async () => {
+export const clearAuth = async () => {
     cookies.remove('auth');
+    await router.push({name: 'login'});
 }
 
-const handler = async (status) => {
+export const handler = async (status) => {
     switch (status) {
         case 401:
             await router.push({name: 'logout'});
             break;
     }
-}
-
-export default {
-    getAuth,
-    logout,
-    clearAuth,
-    handler,
 }
