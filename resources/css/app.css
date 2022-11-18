@@ -1,3 +1,231 @@
 :root {
     --main: #1b9300;
 }
+
+.c-wrapper {
+    display: flex;
+}
+
+.c-wrapper-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-w-0 {
+    width: 0;
+}
+
+.c-w-10 {
+    width: 10%;
+}
+
+.c-w-20 {
+    width: 20%;
+}
+
+.c-w-30 {
+    width: 30%;
+}
+
+.c-w-40 {
+    width: 40%;
+}
+
+.c-w-50 {
+    width: 50%;
+}
+
+.c-w-60 {
+    width: 60%;
+}
+
+.c-w-70 {
+    width: 70%;
+}
+
+.c-w-80 {
+    width: 80%;
+}
+
+.c-w-90 {
+    width: 90%;
+}
+
+.c-w-100 {
+    width: 100%;
+}
+
+.c-h-0 {
+    height: 0;
+}
+
+.c-h-10 {
+    height: 10%;
+}
+
+.c-h-20 {
+    height: 20%;
+}
+
+.c-h-30 {
+    height: 30%;
+}
+
+.c-h-40 {
+    height: 40%;
+}
+
+.c-h-50 {
+    height: 50%;
+}
+
+.c-h-60 {
+    height: 60%;
+}
+
+.c-h-70 {
+    height: 70%;
+}
+
+.c-h-80 {
+    height: 80%;
+}
+
+.c-h-90 {
+    height: 90%;
+}
+
+.c-h-100 {
+    height: 100%;
+}
+
+.c-vw-10 {
+    width: 10vw;
+}
+
+.c-vw-20 {
+    width: 20vw;
+}
+
+.c-vw-30 {
+    width: 30vw;
+}
+
+.c-vw-40 {
+    width: 40vw;
+}
+
+.c-vw-50 {
+    width: 50vw;
+}
+
+.c-vw-60 {
+    width: 60vw;
+}
+
+.c-vw-70 {
+    width: 70vw;
+}
+
+.c-vw-80 {
+    width: 80vw;
+}
+
+.c-vw-90 {
+    width: 90vw;
+}
+
+.c-vw-100 {
+    width: 100vw;
+}
+
+.c-vh-10 {
+    height: 10vh;
+}
+
+.c-vh-20 {
+    height: 20vh;
+}
+
+.c-vh-30 {
+    height: 30vh;
+}
+
+.c-vh-40 {
+    height: 40vh;
+}
+
+.c-vh-50 {
+    height: 50vh;
+}
+
+.c-vh-60 {
+    height: 60vh;
+}
+
+.c-vh-70 {
+    height: 70vh;
+}
+
+.c-vh-80 {
+    height: 80vh;
+}
+
+.c-vh-90 {
+    height: 90vh;
+}
+
+.c-vh-100 {
+    height: 100vh;
+}
+.c-p-0{padding: 0;
+}.c-p-1{padding: 1rem;
+}.c-p-2{padding: 2rem;
+}.c-p-3{padding: 3rem;
+}.c-p-4{padding: 4rem;
+}.c-p-5{padding: 5rem;
+}.c-m-0{margin: 0;
+}.c-m-1{margin: 1rem;
+}.c-m-2{margin: 2rem;
+}.c-m-3{margin: 3rem;
+}.c-m-4{margin: 4rem;
+}.c-m-5{margin: 5rem;
+}
+.c-text-center{
+    text-align: center;
+}
+.c-text-left{
+    text-align: left;
+}
+.c-text-right{
+    text-align: right;
+}
+.c-text-start{
+    text-align: start;
+}
+.c-text-end{
+    text-align: end;
+}
+.c-border-radius-0{border-radius: 0;
+}
+.c-border-radius-5{border-radius: 5%;
+}
+.c-border-radius-10{border-radius: 10%;
+}
+.c-border-radius-15{border-radius: 15%;
+}
+.c-border-radius-20{border-radius: 20%;
+}
+.c-border-radius-25{border-radius: 25%;
+}
+.c-border-radius-30{border-radius: 30%;
+}
+.c-border-radius-35{border-radius: 35%;
+}
+.c-border-radius-40{border-radius: 40%;
+}
+.c-border-radius-45{border-radius: 45%;
+}
+.c-border-radius-50{border-radius: 50%;
+}

@@ -1,8 +1,10 @@
 import {createRouter, createWebHistory} from "vue-router/dist/vue-router"
-import {getAuth, getAuthToken, logout} from "../config/main.js"
-
+import {getAuthToken, logout} from "../config/main.js"
 import Dashboard from "../views/Dashboard.vue"
 import Login from "../views/user/Login.vue"
+import Task from "../components/tasks/Task.vue";
+
+const redirectLink = '/';
 
 const routes = [
     {
@@ -12,6 +14,13 @@ const routes = [
         meta: {
             auth: true,
         },
+        children: [
+            {
+                path: 'tasks',
+                name: 'tasks',
+                component: Task,
+            },
+        ],
     },
     {
         path: '/login',
@@ -40,8 +49,6 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
-
-const redirectLink = '/';
 
 router.beforeEach(async (to, from, next) => {
     let authToken = getAuthToken();

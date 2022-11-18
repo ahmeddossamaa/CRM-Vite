@@ -1,6 +1,6 @@
 <template>
-<div class="d-flex justify-content-center align-items-center vh-100 vw-100">
-    <form class="form" @submit.prevent="login">
+    <div class="c-wrapper-center c-vh-100">
+    <!--    <form class="form" @submit.prevent="login">
         <h5>Login</h5>
         <label for="emailInput" class="form-label">
             <input type="email" name="email" class="form-control" id="emailInput" v-model="user.email" placeholder="Email"/>
@@ -9,8 +9,21 @@
             <input type="password" name="password" class="form-control" id="passwordInput" v-model="user.password" placeholder="Password"/>
         </label>
         <button class="btn btn-outline-success">Submit</button>
-    </form>
-</div>
+    </form>-->
+        <div class="c-w-50 c-p-3 c-wrapper-center">
+            <form class="form c-border-radius-25" @submit.prevent="login">
+                <h5>Login</h5>
+                <label for="emailInput" class="form-label">
+                    <input type="email" name="email" class="form-control" id="emailInput" v-model="user.email" placeholder="Email"/>
+                </label>
+                <label for="passwordInput" class="form-label">
+                    <input type="password" name="password" class="form-control" id="passwordInput" v-model="user.password" placeholder="Password"/>
+                </label>
+                <button class="btn btn-outline-success">Submit</button>
+            </form>
+        </div>
+        <div class="c-w-50 c-h-100">right</div>
+    </div>
 </template>
 
 <script>
