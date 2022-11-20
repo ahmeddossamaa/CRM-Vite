@@ -27,12 +27,12 @@ class AuthController extends Controller
             return response()->json('Email or password missing', 422);
         }
 
-        $token = Auth::attempt([
+        $attempt = Auth::attempt([
             'email' => $inputs['email'],
             'password' => $inputs['password'],
         ]);
 
-        if (!$token){
+        if (!$attempt){
             return response()->json('Email or password not correct', 401);
         }
 
@@ -41,7 +41,7 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user,
             'authToken' => $user->createToken('authToken')->plainTextToken,
-        ], 200);
+        ]);
     }
 
     public function register(Request $request): \Illuminate\Http\JsonResponse
@@ -70,7 +70,7 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user,
             'authToken' => $user->createToken('authToken')->plainTextToken,
-        ], 200);
+        ]);
     }
 
     public function getUserByToken(Request $request){
@@ -83,10 +83,10 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-//        $request->user()->tokens()->delete();
         $request->user()->currentAccessToken();
-//        dd($request->session());
+
         Auth::guard('web')->logout();
+
         return response()->json([
             'message' => 'Logged out successfully',
             'user' => Auth::user(),

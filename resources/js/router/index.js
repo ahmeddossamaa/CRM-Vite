@@ -1,22 +1,26 @@
-import {createRouter, createWebHistory} from "vue-router/dist/vue-router";
-import App from "../views/App.vue";
-import Dashboard from "../views/Dashboard.vue";
-import Users from "../views/Users.vue";
-import User from "../views/User.vue";
-import Login from "../views/user/Login.vue";
-import Center from "../views/dashboard/Center.vue";
+import {createRouter, createWebHistory} from "vue-router/dist/vue-router"
+import {getAuthToken, logout} from "../config/main.js"
+import Dashboard from "../views/Dashboard.vue"
+import Login from "../views/user/Login.vue"
+import Task from "../components/tasks/Task.vue";
 
-import cookies from "vue-cookies";
-import main from "../config/main";
+const redirectLink = '/';
 
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'dashboard',
         component: Dashboard,
         meta: {
             auth: true,
-        }
+        },
+        children: [
+            {
+                path: 'tasks',
+                name: 'tasks',
+                component: Task,
+            },
+        ],
     },
     {
         path: '/login',
@@ -31,7 +35,7 @@ const routes = [
         name: 'logout',
         component: {
             beforeRouteEnter: async (to, from, next) => {
-                await main.logout();
+                await logout();
                 next('/login');
             }
         },
@@ -46,23 +50,17 @@ const router = createRouter({
     routes,
 });
 
-const redirectLink = '/';
-
 router.beforeEach(async (to, from, next) => {
-    let auth = main.getAuth();
+    let authToken = getAuthToken();
 
     if (to.meta.auth){
-        if (!auth.authToken){
+        if (!authToken){
             next('login');
         }else{
-            if(to.name === 'dashboard'){
-                next(redirectLink);
-            }else {
-                next();
-            }
+            next();
         }
     }else{
-        if(auth.authToken){
+        if(authToken){
             next(from.path || redirectLink);
         }else{
             next();

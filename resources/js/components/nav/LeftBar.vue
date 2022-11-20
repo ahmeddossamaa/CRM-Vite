@@ -4,20 +4,27 @@
             <div class="app-name">CRM</div>
             <div class="mid">
                 <hr class="m-1">
-                <router-link to="dashboard"><span>Dashboard</span><i class="fas fa-home"></i></router-link>
-                <router-link to="users"><span>Users</span><i class="fas fa-users"></i></router-link>
+<!--                <router-link :to="{name: 'home'}"><span>Dashboard</span><i class="fas fa-home"></i></router-link>-->
+                <router-link :to="{name: 'users'}"><span>Users</span><i class="fas fa-users"></i></router-link>
             </div>
             <div class="bottom">
                 <hr class="m-1">
-                <router-link to="logout"><span>Logout</span><i class="fas fa-sign-out-alt text-danger"></i></router-link>
+                <a class="logout-btn" href="" @click.prevent="logout"><span>Logout</span><i class="fas fa-sign-out-alt text-danger"></i></a>
             </div>
         </div>
     </nav>
 </template>
 
 <script>
+import {logout} from "../../config/main";
+
 export default {
-    name: "SideBar"
+    name: "SideBar",
+    setup(){
+        return{
+            logout,
+        }
+    }
 }
 </script>
 
@@ -46,9 +53,8 @@ nav a:hover{
     transition: 0.2s;
 }
 
-.router-link-active{
+.logout-btn:active, .router-link-active{
     filter: fade(10);
-    border-left: 2px solid white;
     background-color: rgba(0, 0, 0, 0.1);
 }
 

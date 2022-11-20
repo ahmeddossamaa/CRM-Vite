@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list-unstyled">
-<!--            <li v-for="user in users"><router-link class="text-white" :to="`/dashboard/user/${user.id}`">{{ user['id'] + ' ' + user['first_name'] + ' ' + user['last_name'] }}</router-link></li>-->
+            <li v-for="user in users"><router-link class="text-white" :to="`/users/${user.id}`">{{ user['id'] + ' ' + user['first_name'] + ' ' + user['last_name'] }}</router-link></li>
         </ul>
     </div>
 </template>
