@@ -8,7 +8,7 @@ export default {
         l: Number,
     },
     setup(props){
-        console.log(props.l);
+        console.log(props.l)
     }
 }
 </script>

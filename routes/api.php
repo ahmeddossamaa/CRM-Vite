@@ -29,4 +29,7 @@ Route::middleware('auth:sanctum')->get('getUser', function (){
 Route::middleware('auth:sanctum')->group(function (){
     Route::resource('users', \App\Http\Controllers\UserController::class);
 });
+
 Route::resource('tasks', \App\Http\Controllers\Todo\TaskController::class);
+
+Route::post('sendMessage', [\App\Http\Controllers\User\MessageController::class, 'sendMessage']);

@@ -1,10 +1,18 @@
 <template>
-    <Suspense>
-        <router-view/>
-    </Suspense>
+    <div class="main">
+        <Suspense>
+            <router-view/>
+        </Suspense>
+    </div>
 </template>
 
 <script>
+const channel = window.pusher.subscribe('my-channel');
+
+channel.bind('new-message', function(data) {
+    alert(data['message']);
+});
+
 export default {
     setup(){
 
@@ -14,8 +22,10 @@ export default {
 
 <style>
 body {
+    height: 100vh;
+    /*position: relative;*/
     margin:0;
     box-sizing: border-box;
-    /*background-color:darkblue;*/
+    background-color: var(--goblin-fade);
 }
 </style>

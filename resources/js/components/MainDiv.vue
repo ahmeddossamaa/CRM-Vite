@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TopBar from "./nav/TopBar.vue";
+import TopBar from "./nav/TopBar.vue"
 export default {
     name: "Main",
     components: {TopBar}

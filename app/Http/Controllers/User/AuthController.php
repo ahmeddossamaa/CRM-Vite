@@ -60,8 +60,7 @@ class AuthController extends Controller
         }
 
         $user = new User();
-        $user->first_name = $request['firstName'];
-        $user->last_name = $request['lastName'];
+        $user->name = $request['firstName'] . ' ' . $request['lastName'];
         $user->email = $request['email'];
         $user->password = bcrypt($request['password']);
         $user->role_id = EMPLOYEE_ROLE;
@@ -83,8 +82,6 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        $request->user()->currentAccessToken();
-
         Auth::guard('web')->logout();
 
         return response()->json([

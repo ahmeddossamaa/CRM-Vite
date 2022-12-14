@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {ref} from "vue"
 
 export default {
     name: "Center",
     setup(){
-        const numbers = ref([]);
+        const numbers = ref([])
 
         for (let i = 0; i < 100; i++) {
-            numbers.value[i] = i;
+            numbers.value[i] = i
         }
 
         return{

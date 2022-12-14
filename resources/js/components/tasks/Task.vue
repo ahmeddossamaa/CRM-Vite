@@ -16,17 +16,17 @@
 </template>
 
 <script>
-import {getRequest} from "../../api";
-import {ref} from "vue";
+import {getRequest} from "../../api"
+import {ref} from "vue"
 
 const loadTask = async () => {
-    return await getRequest('tasks');
+    return await getRequest('tasks')
 }
 
 export default {
     name: 'task',
     async setup(){
-        const tasks = ref(await loadTask());
+        const tasks = ref(await loadTask())
 
         return{
             tasks,
