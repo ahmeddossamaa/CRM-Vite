@@ -8,7 +8,7 @@
 
 <script>
 import {onBeforeMount, ref} from "vue";
-import api from "../api";
+import api from "../../api";
 
 const users = ref([]);
 

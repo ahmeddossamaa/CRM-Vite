@@ -28,7 +28,7 @@
 
 <script>
 import {ref} from "vue";
-import {postRequest} from "../../api";
+import {postRequest} from "../api";
 import cookies from 'vue-cookies';
 import {useRouter} from "vue-router";
 

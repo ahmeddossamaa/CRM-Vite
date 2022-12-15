@@ -1,8 +1,9 @@
 import {createRouter, createWebHistory} from "vue-router/dist/vue-router"
 import {getAuthToken, logout} from "../config/main.js"
 import Dashboard from "../views/Dashboard.vue"
-import Login from "../views/user/Login.vue"
-import Task from "../components/tasks/Task.vue";
+import Login from "../views/Login.vue"
+import Task from "../components/tasks/Index.vue";
+import ShowTask from "../components/tasks/Show.vue";
 
 const redirectLink = '/';
 
@@ -19,6 +20,15 @@ const routes = [
                 path: 'tasks',
                 name: 'tasks',
                 component: Task,
+                children: [
+
+                ],
+            },
+            {
+                path: 'tasks/:id',
+                name: 'task',
+                props: true,
+                component: ShowTask,
             },
         ],
     },

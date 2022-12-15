@@ -2,9 +2,9 @@
     <TopBar/>
     <Suspense>
         <template #default>
-            <KeepAlive :include="['task']">
+<!--            <KeepAlive :include="['task']">-->
                 <RouterView></RouterView>
-            </KeepAlive>
+<!--            </KeepAlive>-->
         </template>
         <template #fallback>
             Loading...
