@@ -1917,10 +1917,10 @@
   }
 
   // Here we have async deferring wrappers using microtasks.
-  // In 2.5 we used (macro) tasks (in combination with microtasks).
+  // In 2.5 we used (macro) projects (in combination with microtasks).
   // However, it has subtle problems when state is changed right before repaint
   // (e.g. #6813, out-in transitions).
-  // Also, using (macro) tasks in event handler would cause some weird behaviors
+  // Also, using (macro) projects in event handler would cause some weird behaviors
   // that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
   // So we now use microtasks everywhere, again.
   // A major drawback of this tradeoff is that there are some scenarios

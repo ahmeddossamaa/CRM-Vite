@@ -1,20 +1,17 @@
 <template>
-<ul>
-<!--    <router-view/>-->
-    <li v-for="(val, key) in numbers">{{ key }}: {{ val }}</li>
-</ul>
+<div class="right">test</div>
 </template>
 
 <script>
-import {ref} from "vue";
+import {ref} from "vue"
 
 export default {
     name: "Center",
     setup(){
-        const numbers = ref([]);
+        const numbers = ref([])
 
         for (let i = 0; i < 100; i++) {
-            numbers.value[i] = i;
+            numbers.value[i] = i
         }
 
         return{
@@ -29,5 +26,7 @@ export default {
 </script>
 
 <style scoped>
-
+.right{
+    width: calc(100% - var(--left-bar-width));
+}
 </style>

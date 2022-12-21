@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->string('dsc')->default(null)->nullable();
+            $table->foreignId('from_id')->references('id')->on('users');
+            $table->foreignId('to_id')->references('id')->on('users');
+            $table->longText('title');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('messages');
     }
 };

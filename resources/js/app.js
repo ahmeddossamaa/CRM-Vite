@@ -1,8 +1,18 @@
-import './bootstrap';
+import './bootstrap'
 
-import { createApp } from "vue";
-import router from "./router";
+import { createApp, defineAsyncComponent } from "vue"
+import router from "./router"
 
-import App from "./views/App.vue";
+import App from "./views/App.vue"
+import Loading from "./components/Loading.vue"
+import Error from "./components/Error.vue"
 
-createApp(App).use(router).mount('#app');
+const localComponent = defineAsyncComponent({
+    loader: () => '...',
+    loadingComponent: Loading,
+    delay: 200,
+    errorComponent: Error,
+    timeout: 3000,
+})
+
+createApp(App).use(router).mount('#app')

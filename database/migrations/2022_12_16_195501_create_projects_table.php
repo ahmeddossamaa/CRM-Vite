@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('title');
-            $table->string('dsc')->default(null)->nullable();
+            $table->string('title_ar')->default(null);
+            $table->tinyInteger('is_active')->default(1);
+            $table->integer('size')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

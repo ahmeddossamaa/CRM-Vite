@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->string('dsc')->default(null)->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('projects', function (Blueprint $table) {
+            $table->longText('desc');
+            $table->dropColumn('title_ar');
+            $table->integer('sort_order')->after('desc')->autoIncrement();
         });
     }
 
@@ -30,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropColumn('desc');
+        });
     }
 };

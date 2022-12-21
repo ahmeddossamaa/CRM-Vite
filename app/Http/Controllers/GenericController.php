@@ -19,16 +19,20 @@ abstract class GenericController extends MainController
     }
 
     public function genericStore(Request $request){
-        $inputs = $request->all();
-        $object = new $this->model;
+        try {
+            $inputs = $request->all();
+            $object = new $this->model;
 
-        foreach ($inputs as $key => $value){
-            $object->$key = $value;
+            foreach ($inputs as $key => $value){
+                $object->$key = $value;
+            }
+
+            $object->save();
+
+            return $object;
+        }catch (\Exception $e){
+            return $this->getResponse('error', $e->getMessage());
         }
-
-        $object->save();
-
-        return $this->getResponse('success', "$this->name Added Successfully", $object);
     }
     public function store(Request $request){
         return $this->genericStore($request);
@@ -47,14 +51,14 @@ abstract class GenericController extends MainController
 
         $object->save();
 
-        return $this->getResponse('success', "$this->name Added Successfully", $object);
+        return $object;
     }
     public function update(Request $request, $id){
         return $this->genericUpdate($request, $id);
     }
 
     public function genericIndex(){
-        return $this->getResponse('success', '', $this->model::all());
+        return $this->model::all();
     }
     public function index(){
         return $this->genericIndex();
@@ -65,7 +69,7 @@ abstract class GenericController extends MainController
         if (empty($object)){
             return $this->getResponse('error', "$this->name Not Found", null);
         }
-        return $this->getResponse('success', "", $object);
+        return $object;
     }
     public function show($id){
         return $this->genericShow($id);
@@ -74,11 +78,11 @@ abstract class GenericController extends MainController
     public function genericDestroy($id){
         $object = $this->model::find($id);
         if (empty($object)){
-            return $this->getResponse('error', "$this->name not Found", '');
+            return $this->getResponse('error', "$this->name not Found");
         }
 
         $object->delete();
-        return $this->getResponse('success', "$this->name Deleted Successfully", '');
+        return $this->getResponse('success', "$this->name Deleted Successfully");
     }
     public function destroy($id){
         return $this->genericDestroy($id);

@@ -1,5 +1,21 @@
 :root {
-    --main: #1b9300;
+    /*Colors*/
+    --goblin: #191A19;
+    --goblin-fade: #2a2c2a;
+    --goblin-base-green: rgba(30, 81, 40, 0.67);
+    --goblin-light-green: #4E9F3D;
+    --goblin-light-green-fade: rgba(78, 159, 61, 0.58);
+    --goblin-third: #D8E9A8;
+    /*Lengths*/
+    --left-bar-width: 15%;
+}
+
+.g-bg-goblin{
+    background: var(--goblin);
+}
+
+.g-bg-goblin-fade{
+    background: var(--goblin-fade);
 }
 
 .c-wrapper {
@@ -179,53 +195,115 @@
 .c-vh-100 {
     height: 100vh;
 }
-.c-p-0{padding: 0;
-}.c-p-1{padding: 1rem;
-}.c-p-2{padding: 2rem;
-}.c-p-3{padding: 3rem;
-}.c-p-4{padding: 4rem;
-}.c-p-5{padding: 5rem;
-}.c-m-0{margin: 0;
-}.c-m-1{margin: 1rem;
-}.c-m-2{margin: 2rem;
-}.c-m-3{margin: 3rem;
-}.c-m-4{margin: 4rem;
-}.c-m-5{margin: 5rem;
+
+.c-p-0 {
+    padding: 0;
 }
-.c-text-center{
+
+.c-p-1 {
+    padding: 1rem;
+}
+
+.c-p-2 {
+    padding: 2rem;
+}
+
+.c-p-3 {
+    padding: 3rem;
+}
+
+.c-p-4 {
+    padding: 4rem;
+}
+
+.c-p-5 {
+    padding: 5rem;
+}
+
+.c-m-0 {
+    margin: 0;
+}
+
+.c-m-1 {
+    margin: 1rem;
+}
+
+.c-m-2 {
+    margin: 2rem;
+}
+
+.c-m-3 {
+    margin: 3rem;
+}
+
+.c-m-4 {
+    margin: 4rem;
+}
+
+.c-m-5 {
+    margin: 5rem;
+}
+
+.c-text-center {
     text-align: center;
 }
-.c-text-left{
+
+.c-text-left {
     text-align: left;
 }
-.c-text-right{
+
+.c-text-right {
     text-align: right;
 }
-.c-text-start{
+
+.c-text-start {
     text-align: start;
 }
-.c-text-end{
+
+.c-text-end {
     text-align: end;
 }
-.c-border-radius-0{border-radius: 0;
+
+.c-border-radius-0 {
+    border-radius: 0;
 }
-.c-border-radius-5{border-radius: 5%;
+
+.c-border-radius-5 {
+    border-radius: 5%;
 }
-.c-border-radius-10{border-radius: 10%;
+
+.c-border-radius-10 {
+    border-radius: 10%;
 }
-.c-border-radius-15{border-radius: 15%;
+
+.c-border-radius-15 {
+    border-radius: 15%;
 }
-.c-border-radius-20{border-radius: 20%;
+
+.c-border-radius-20 {
+    border-radius: 20%;
 }
-.c-border-radius-25{border-radius: 25%;
+
+.c-border-radius-25 {
+    border-radius: 25%;
 }
-.c-border-radius-30{border-radius: 30%;
+
+.c-border-radius-30 {
+    border-radius: 30%;
 }
-.c-border-radius-35{border-radius: 35%;
+
+.c-border-radius-35 {
+    border-radius: 35%;
 }
-.c-border-radius-40{border-radius: 40%;
+
+.c-border-radius-40 {
+    border-radius: 40%;
 }
-.c-border-radius-45{border-radius: 45%;
+
+.c-border-radius-45 {
+    border-radius: 45%;
 }
-.c-border-radius-50{border-radius: 50%;
+
+.c-border-radius-50 {
+    border-radius: 50%;
 }
