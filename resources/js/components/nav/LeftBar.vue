@@ -8,6 +8,7 @@
                 <hr>
                 <NavButton to="home" name="Home"/>
                 <NavButton to="projects" name="Projects"/>
+                <NavButton to="test" name="Test"/>
                 <div class="logout">
                     <hr>
                     <NavButton to="logout" name="Logout"></NavButton>
@@ -27,7 +28,7 @@ export default {
         return{
 
         }
-    }
+    },
 }
 </script>
 

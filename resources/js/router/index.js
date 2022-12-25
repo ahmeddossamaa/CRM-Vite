@@ -5,6 +5,7 @@ import Login from "../views/user/Login.vue"
 import Index from "../components/modules/projects/Index.vue"
 import Show from "../components/modules/projects/Show.vue"
 import {APP_NAME} from "../config/constants"
+import TestComponent from "../components/tests/TestComponent.vue";
 
 const redirectLink = '/'
 
@@ -27,6 +28,11 @@ const routes = [
                 name: 'project',
                 props: true,
                 component: Show,
+            },
+            {
+                path: 'test',
+                name: 'test',
+                component: TestComponent,
             },
         ],
     },
