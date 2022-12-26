@@ -67,7 +67,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     let authToken = getAuthToken()
 
-    document.title = `${APP_NAME} | ${to.name.charAt(0).toUpperCase() + to.name.slice(1)}`;
+    // document.title = `${APP_NAME} | ${to.name.charAt(0).toUpperCase() + to.name.slice(1)}`;
 
     if (to.meta.auth){
         if (!authToken){
